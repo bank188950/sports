@@ -11,21 +11,45 @@
 
 @layer components {
   /* Index Page */
-  .title-section {
-    @apply text-[50px] text-gray-300;
+
+  /* Sport */
+
+  .image-section {
+    @apply relative flex flex-col items-center gap-2 px-4 md:px-6;
+  }
+  
+  .inner-section {
+    @apply px-4 md:px-0;
   }
 
-  .number-order {
-    @apply text-sm text-black;
+  .title-section {
+    @apply text-[50px] md:text-[90px] md:leading-[1.2] self-start text-gray-300;
+  }
+
+  .list-slide {
+    @apply flex flex-col gap-3 md:gap-6 xl:gap-8 w-full;
   }
 
   .title-slide {
-    @apply text-[28px] text-gray-300;
+    @apply text-[28px] md:text-4xl xl:text-4xl text-gray-300 flex items-center gap-3;
+  }
+
+  .number-order {
+    @apply text-sm md:text-lg xl:text-lg text-black;
+  }
+
+  .violet-line {
+    @apply block w-full h-1 bg-violet rounded-md md:h-1.5;
+  }
+
+  .white-line {
+    @apply block w-full h-1 bg-white rounded-md md:h-1.5;
   }
 
   .desc-slide {
-    @apply text-[15px] text-black;
+    @apply text-[15px] md:text-lg xl:text-xl text-black leading-tight;
   }
+
 }
 
 body {
@@ -33,22 +57,33 @@ body {
   padding: 0;
 }
 
-.image-wrap {
-  position: relative;
-}
-
-.image-wrap .image {
-  object-fit: contain;
-  position: relative !important;
-}
-
 /* Swiper Slide */
+
 .swiper-contain .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
   background-color: var(--violet);
 }
 
+.swiper-contain .swiper-horizontal > .swiper-pagination-bullets {
+  bottom: 40px;
+}
+
 .swiper-contain .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0 5px;
+}
+
+.swiper-contain .swiper {
+  padding-bottom: 90px;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-contain .swiper-wrapper {
+    flex-wrap: wrap;
+    transform: translate3d(0px, 0px, 0px) !important;
+  }
+
+  .swiper-contain .swiper-pagination {
+    display: none;
+  }
 }
