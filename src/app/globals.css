@@ -2,26 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+  :root {
+    --violet: #5e3db3;
+    --dark-violet: #090c35;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  /* Index Page */
+  .title-section {
+    @apply text-[50px] text-gray-300;
+  }
+
+  .number-order {
+    @apply text-sm text-black;
+  }
+
+  .title-slide {
+    @apply text-[28px] text-gray-300;
+  }
+
+  .desc-slide {
+    @apply text-[15px] text-black;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
+}
+
+.image-wrap {
+  position: relative;
+}
+
+.image-wrap .image {
+  object-fit: contain;
+  position: relative !important;
+}
+
+/* Swiper Slide */
+.swiper-contain .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: var(--violet);
+}
+
+.swiper-contain .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 5px;
 }
