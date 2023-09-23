@@ -17,7 +17,7 @@
   .image-section {
     @apply relative flex flex-col items-center gap-2 px-4 md:px-6;
   }
-  
+
   .inner-section {
     @apply px-4 md:px-0;
   }
@@ -42,14 +42,9 @@
     @apply block w-full h-1 bg-violet rounded-md md:h-1.5;
   }
 
-  .white-line {
-    @apply block w-full h-1 bg-white rounded-md md:h-1.5;
-  }
-
   .desc-slide {
     @apply text-[15px] md:text-lg xl:text-xl text-black leading-tight;
   }
-
 }
 
 body {
@@ -85,5 +80,9 @@ body {
 
   .swiper-contain .swiper-pagination {
     display: none;
+  }
+
+  .swiper-contain .swiper {
+    padding-bottom: 0px;
   }
 }
