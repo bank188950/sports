@@ -1,6 +1,7 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import Picture from '@/components/Picture';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -14,21 +15,22 @@ export default function Home() {
           <h2 className="title-section">ATHLETS</h2>
 
           <div className="relative w-[218px] xs:w-[268px] md:w-[545px] xl:w-[710px] md:absolute md:-left-[210px] xl:-left-[180px] md:top-2.5 xl:-top-4 md:z-10">
-            <picture className="absolute left-0 top-0 w-full h-full xl:hidden">
-              <source
-                media="(min-width: 768px)"
-                srcSet="/images/webp/rugbyball-tablet-background.webp"
-                type="image/webp"
-              />
-              <source media="(min-width: 768px)" srcSet="/images/rugbyball-tablet-background.png" type="image/png" />
-              <source
-                media="(max-width: 767px)"
-                srcSet="/images/webp/rugbyball-mobile-background.webp"
-                type="image/webp"
-              />
-              <source media="(max-width: 767px)" srcSet="/images/rugbyball-mobile-background.png" type="image/png" />
-              <img src="/images/rugbyball-mobile-background.png" alt="Rugbyball background" />
-            </picture>
+            <Picture
+              classList="absolute left-0 top-0 w-full h-full xl:hidden"
+              isLoaded={true}
+              src="/images/rugbyball-mobile-background.png"
+              sourceSet={[
+                [
+                  { type: 'webp', media: '(min-width: 768px)', path: '/images/webp/rugbyball-tablet-background' },
+                  { type: 'png', media: '(min-width: 768px)', path: '/images/rugbyball-tablet-background' },
+                ],
+                [
+                  { type: 'webp', media: '(max-width: 767px)', path: '/images/webp/rugbyball-mobile-background' },
+                  { type: 'png', media: '(max-width: 767px)', path: '/images/rugbyball-mobile-background' },
+                ],
+              ]}
+              alt="Rugbyball background"
+            />
             <Image
               className="relative w-full h-auto"
               src="/images/rugbyball.png"
@@ -115,27 +117,26 @@ export default function Home() {
           <h2 className="title-section">PLAYERS</h2>
 
           <div className="relative w-[302px] xs:w-[352px] md:w-[690px] xl:w-[991px] md:absolute md:-right-[246px] md:-top-3 xl:-right-[90px] xl:-top-16 md:z-10">
-            <picture className="absolute left-0 top-0 w-full h-full">
-              <source
-                media="(min-width: 1400px)"
-                srcSet="/images/webp/basketball-desktop-background.webp"
-                type="image/webp"
-              />
-              <source media="(min-width: 1400px)" srcSet="/images/basketball-desktop-background.png" type="image/png" />
-              <source
-                media="(min-width: 768px)"
-                srcSet="/images/webp/basketball-tablet-background.webp"
-                type="image/webp"
-              />
-              <source media="(min-width: 768px)" srcSet="/images/basketball-tablet-background.png" type="image/png" />
-              <source
-                media="(max-width: 767px)"
-                srcSet="/images/webp/basketball-mobile-background.webp"
-                type="image/webp"
-              />
-              <source media="(max-width: 767px)" srcSet="/images/basketball-mobile-background.png" type="image/png" />
-              <img src="/images/basketball-mobile-background.png" alt="basketball background" />
-            </picture>
+            <Picture
+              classList="absolute left-0 top-0 w-full h-full"
+              isLoaded={true}
+              src="/images/basketball-mobile-background.png"
+              sourceSet={[
+                [
+                  { type: 'webp', media: '(min-width: 1400px)', path: '/images/webp/basketball-desktop-background' },
+                  { type: 'png', media: '(min-width: 1400px)', path: '/images/basketball-desktop-background' },
+                ],
+                [
+                  { type: 'webp', media: '(min-width: 768px)', path: '/images/webp/basketball-tablet-background' },
+                  { type: 'png', media: '(min-width: 768px)', path: '/images/basketball-tablet-background' },
+                ],
+                [
+                  { type: 'webp', media: '(max-width: 767px)', path: '/images/webp/basketball-mobile-background' },
+                  { type: 'png', media: '(max-width: 767px)', path: '/images/basketball-mobile-background' },
+                ],
+              ]}
+              alt="Basketball Background"
+            />
             <Image
               className="relative w-full h-auto"
               src="/images/basketball.png"
