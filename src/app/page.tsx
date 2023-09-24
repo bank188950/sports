@@ -1,22 +1,32 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 export default function Home() {
   return (
     <main className="mx-auto overflow-hidden">
       <section>
-        <div className="image-section h-[310px] md:h-auto mt-3 md:mt-16 mx-auto max-w-[320px] md:max-w-[768px] md:pl-[290px] md:pr-[0px] xl:max-w-[1400px] xl:pl-[700px]">
+        <div className="image-section h-[310px] xs:h-[365px] md:h-auto mt-3 md:mt-16 mx-auto max-w-[320px] md:max-w-[768px] md:pl-[290px] md:pr-[0px] xl:max-w-[1400px] xl:pl-[700px]">
           <h2 className="title-section">ATHLETS</h2>
 
-          <div className="relative w-[218px] md:w-[545px] xl:w-[710px] md:absolute md:-left-[210px] xl:-left-[180px] md:top-2.5 xl:-top-4 md:z-10">
+          <div className="relative w-[218px] xs:w-[268px] md:w-[545px] xl:w-[710px] md:absolute md:-left-[210px] xl:-left-[180px] md:top-2.5 xl:-top-4 md:z-10">
             <picture className="absolute left-0 top-0 w-full h-full xl:hidden">
-              <source media="(min-width: 768px)" srcSet="/images/rugbyball-tablet-background.png" />
+              <source
+                media="(min-width: 768px)"
+                srcSet="/images/webp/rugbyball-tablet-background.webp"
+                type="image/webp"
+              />
+              <source media="(min-width: 768px)" srcSet="/images/rugbyball-tablet-background.png" type="image/png" />
+              <source
+                media="(max-width: 767px)"
+                srcSet="/images/webp/rugbyball-mobile-background.webp"
+                type="image/webp"
+              />
+              <source media="(max-width: 767px)" srcSet="/images/rugbyball-mobile-background.png" type="image/png" />
               <img src="/images/rugbyball-mobile-background.png" alt="Rugbyball background" />
             </picture>
             <Image
@@ -32,14 +42,19 @@ export default function Home() {
         </div>
 
         <div className="bg-gray-100 md:bg-white mt-2">
-          <div className="inner-section pt-20 md:pt-0 mx-auto max-w-[320px] md:max-w-none">
+          <div className="inner-section pt-20 md:pt-0 mx-auto max-w-[320px] xs:max-w-[360px] md:max-w-none">
             <div className="swiper-contain">
               <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                modules={[Navigation, Pagination]}
                 spaceBetween={0}
                 slidesPerView={1}
                 navigation={false}
                 pagination={{ clickable: true }}
+                breakpoints={{
+                  768: {
+                    allowTouchMove: false,
+                  },
+                }}
               >
                 <SwiperSlide>
                   <div className="md:bg-white md:flex md:justify-center">
@@ -96,13 +111,29 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="image-section h-[290px] md:h-auto mt-3 md:mt-16 mx-auto max-w-[320px] md:max-w-[768px] md:pr-[290px] md:pl-5 xl:max-w-[1400px] xl:pr-[700px]">
+        <div className="image-section h-[290px] xs:h-[322px] md:h-auto mt-3 md:mt-16 mx-auto max-w-[320px] md:max-w-[768px] md:pr-[290px] md:pl-5 xl:max-w-[1400px] xl:pr-[700px]">
           <h2 className="title-section">PLAYERS</h2>
 
-          <div className="relative w-[302px] md:w-[690px] xl:w-[991px] md:absolute md:-right-[246px] md:-top-3 xl:-right-[90px] xl:-top-16 md:z-10">
+          <div className="relative w-[302px] xs:w-[352px] md:w-[690px] xl:w-[991px] md:absolute md:-right-[246px] md:-top-3 xl:-right-[90px] xl:-top-16 md:z-10">
             <picture className="absolute left-0 top-0 w-full h-full">
-              <source media="(min-width: 1400px)" srcSet="/images/basketball-desktop-background.png" />
-              <source media="(min-width: 768px)" srcSet="/images/basketball-tablet-background.png" />
+              <source
+                media="(min-width: 1400px)"
+                srcSet="/images/webp/basketball-desktop-background.webp"
+                type="image/webp"
+              />
+              <source media="(min-width: 1400px)" srcSet="/images/basketball-desktop-background.png" type="image/png" />
+              <source
+                media="(min-width: 768px)"
+                srcSet="/images/webp/basketball-tablet-background.webp"
+                type="image/webp"
+              />
+              <source media="(min-width: 768px)" srcSet="/images/basketball-tablet-background.png" type="image/png" />
+              <source
+                media="(max-width: 767px)"
+                srcSet="/images/webp/basketball-mobile-background.webp"
+                type="image/webp"
+              />
+              <source media="(max-width: 767px)" srcSet="/images/basketball-mobile-background.png" type="image/png" />
               <img src="/images/basketball-mobile-background.png" alt="basketball background" />
             </picture>
             <Image
@@ -117,18 +148,23 @@ export default function Home() {
         </div>
 
         <div className="bg-gray-100 md:bg-white mt-2">
-          <div className="inner-section pt-20 md:pt-0 mx-auto max-w-[320px] md:max-w-none">
+          <div className="inner-section pt-20 md:pt-0 mx-auto max-w-[320px] xs:max-w-[360px] md:max-w-none">
             <div className="swiper-contain">
               <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                modules={[Navigation, Pagination]}
                 spaceBetween={0}
                 slidesPerView={1}
                 navigation={false}
                 pagination={{ clickable: true }}
+                breakpoints={{
+                  768: {
+                    allowTouchMove: false,
+                  },
+                }}
               >
                 <SwiperSlide>
                   <div className="md:bg-white md:flex md:justify-center">
-                    <div className="list-slide md:max-w-[768px] md:pr-[295px] md:pl-6 md:py-7 xl:py-20 xl:max-w-[1400px] xl:pr-[750px]">
+                    <div className="list-slide md:max-w-[768px] md:pr-[295px] md:pl-6 md:py-7 xl:py-16 xl:max-w-[1400px] xl:pr-[750px]">
                       <h3 className="title-slide">
                         <span className="number-order">
                           01
@@ -145,7 +181,7 @@ export default function Home() {
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="md:bg-gray-100 md:flex md:justify-center">
-                    <div className="list-slide md:max-w-[768px] md:pr-[295px] md:pl-6 md:py-12 xl:py-20 xl:max-w-[1400px] xl:pr-[750px]">
+                    <div className="list-slide md:max-w-[768px] md:pr-[295px] md:pl-6 md:py-12 xl:py-24 xl:max-w-[1400px] xl:pr-[750px]">
                       <h3 className="title-slide">
                         <span className="number-order">
                           02
@@ -161,7 +197,7 @@ export default function Home() {
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="md:bg-dark-violet md:flex md:justify-center">
-                    <div className="list-slide md:max-w-[768px] md:pr-[295px] md:pl-6 md:py-7 xl:py-14 xl:max-w-[1400px] xl:pr-[750px]">
+                    <div className="list-slide md:max-w-[768px] md:pr-[295px] md:pl-6 md:py-7 xl:py-16 xl:max-w-[1400px] xl:pr-[750px]">
                       <h3 className="title-slide">
                         <span className="number-order md:text-violet">
                           03
